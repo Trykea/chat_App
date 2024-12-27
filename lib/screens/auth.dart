@@ -1,3 +1,4 @@
+import 'package:chat_app/widgets/user_image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -31,12 +32,10 @@ class _AuthScreenState extends State<AuthScreen> {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
             email: enteredEmail, password: enteredPassword);
         print(userCredentials);
-
       }
       ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content:Text( 'Success')));
-
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Success')));
     } on FirebaseAuthException catch (error) {
       if (error.code == 'email-already-in-use') {
         // we can return message as we want
@@ -76,6 +75,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            if (!_isLogin) UserImagePicker(),
                             TextFormField(
                               decoration: const InputDecoration(
                                 labelText: 'Email address',
