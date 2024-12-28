@@ -45,3 +45,18 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+    // Firebase Core (required for Firebase integration)
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+
+    // Google Play Services Base (required for checking compatibility)
+    implementation 'com.google.android.gms:play-services-base:18.2.0'
+
+    // Firebase Messaging (for push notifications)
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+
+    // Other dependencies
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
